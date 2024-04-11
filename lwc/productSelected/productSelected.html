@@ -1,0 +1,12 @@
+<template>
+    <template lwc:if={productLists}>
+        <lightning-card title="선택된 상품" icon-name="standard:product_required">
+            <div class="datatable-container slds-scrollable_y">
+                <lightning-datatable key-field="Id" data={productLists} columns={columns}
+                class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped"
+                hide-checkbox-column onrowaction={handleRowAction} column-widths-mode="auto">
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+    </template>
+</template>

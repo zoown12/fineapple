@@ -1,0 +1,19 @@
+<!--vocSearchComponent.html-->
+<template>
+    <lightning-card title="고객 검색" icon-name="standard:indicator_result">
+        <div class="slds-m-around_medium">
+            <div class="slds-col slds-size_1-of-7">
+            <lightning-input label="전화번호 검색" type="tel" value={phoneNumber} onchange={handlePhoneNumberChange} placeholder="xxx-xxxx-xxxx"></lightning-input>
+        </div>
+    </div>
+        <div class="slds-m-around_medium">
+        <lightning-button label="검색" onclick={searchVocsByPhoneNumber} variant="brand" class="slds-m-right_medium"></lightning-button>
+        <lightning-button label="생성" onclick={handleSuccess} variant="brand" disabled={isCreateEnabled}></lightning-button>
+        </div>
+        
+        
+        <template if:true={vocRecords}>
+            <lightning-datatable key-field="Id" data={vocRecords} columns={columns} hide-checkbox-column=true  onrowaction={handleRowAction}></lightning-datatable>
+        </template>
+    </lightning-card>
+</template>

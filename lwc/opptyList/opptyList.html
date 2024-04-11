@@ -1,0 +1,52 @@
+<template>
+    <div class="slds-grid slds-grid_align-spread slds-m-bottom_small">
+        <div class="slds-col  slds-align-middle">
+            <h2 class="slds-card__header-title">세일즈</h2>
+        </div>
+        <div class="slds-col slds-size_4-of-12">
+            <lightning-combobox
+            name="veiwOptions"
+            value={value}
+            options={options}
+            onchange={handleChange}></lightning-combobox>
+          </div>
+    </div>
+    <div class="datatable-container slds-scrollable_y" >
+        <!-- 모두 보기 -->
+        <template lwc:if={sales}>
+            <lightning-datatable
+            key-field="Id"
+            data={sales}
+            columns={columns}
+            class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped"
+            hide-checkbox-column
+            onrowaction={handleRowAction} 
+            >
+        </lightning-datatable>
+    </template>
+    <!-- 고객 정보가 있는 레코드만 보기 -->
+    <template lwc:if={oppties}>
+        <lightning-datatable
+            key-field="Id"
+            data={oppties}
+            columns={columns}
+            class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped"
+            hide-checkbox-column
+            onrowaction={handleRowAction} 
+        >
+        </lightning-datatable>
+    </template>
+    <!-- 고객 정보가 없는 레코드만 보기 -->
+    <template lwc:if={leads}>
+        <lightning-datatable
+            key-field="Id"
+            data={leads}
+            columns={columns}
+            class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped"
+            hide-checkbox-column
+            onrowaction={handleRowAction} 
+        >
+        </lightning-datatable>
+    </template>
+</div>
+</template>

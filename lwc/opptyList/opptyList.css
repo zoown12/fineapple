@@ -1,0 +1,8 @@
+.datatable-container {
+    height: 250px;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.datatable-container::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar */
+}

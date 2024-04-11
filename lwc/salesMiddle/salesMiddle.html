@@ -1,0 +1,15 @@
+<template>
+    <!-- 검색 컴포넌트 -->
+    <c-search-customer
+        oncustomerselect={handleCustomerSelect}
+        onsearchkeyempty={handleSearchKeyEmpty}
+        onopenmodal={handleOpenModal}>
+    </c-search-customer>
+
+    <!-- 조건부 렌더링을 사용하여 고객 기회 컴포넌트 표시 제어 -->
+    <template if:true={isCustomerOpptyVisible}>
+        <c-customer-oppty customer-id={selectedCustomerId}></c-customer-oppty>
+    </template>
+
+
+</template>

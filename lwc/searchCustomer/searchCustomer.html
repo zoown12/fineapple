@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="고객 검색" icon-name="custom:custom14">
+        <div slot="actions">
+            <lightning-button label="New" variant="brand" onclick={handleNewCustomer}></lightning-button>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-input label="전화번호 검색 (마지막 4자리)"
+                             type="text"
+                             maxlength="4"
+                             onchange={handleInputChange}></lightning-input>
+        </div>
+        <template if:true={customers}>
+            <template if:true={customers.length}>
+                <lightning-datatable data={customers}
+                                     columns={columns}
+                                     key-field="Id"
+                                     hide-checkbox-column="true"
+                                     onrowaction={handleRowAction}></lightning-datatable>
+            </template>
+            <template if:false={customers.length}>
+                <p class="slds-p-horizontal_small">{noDataFoundMessage}</p>
+            </template>
+        </template>
+        <template if:false={customers}>
+            <p class="slds-p-horizontal_small">검색하고자 하는 전화번호 4자리를 입력해주세요.</p>
+        </template>
+    </lightning-card>
+    <template if:true={isModalOpen}>
+        <c-oppty-modal onclosemodal={handleCloseModal}></c-oppty-modal>
+    </template>
+</template>

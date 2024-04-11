@@ -1,0 +1,8 @@
+.datatable-container {
+    height: 250px;
+    overflow-y: auto; /* 내부 스크롤 활성화 */
+}
+
+.datatable-container::-webkit-scrollbar {
+    display: none; /* 외부 스크롤 감추기 */
+}

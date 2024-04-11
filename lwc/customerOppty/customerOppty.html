@@ -1,0 +1,23 @@
+<template>
+    <template if:true={oppties}>
+        <lightning-card title="판매 목록" icon-name="standard:opportunity">
+            <div slot="actions">
+                <lightning-button label="New" variant="brand" onclick={handleNewCustomer}></lightning-button>
+            </div>
+            <template if:true={oppties.length}>
+                <lightning-datatable
+                    data={oppties}
+                    columns={columns}
+                    key-field="Id"
+                    onrowaction={handleRowAction}>
+                </lightning-datatable>
+            </template>
+            <template if:false={oppties.length}>
+                <p class="slds-p-horizontal_small">판매내역이 없습니다.</p>
+            </template>
+        </lightning-card>
+        <template if:true={isModalOpen}>
+            <c-oppty-modal onclosemodal={handleCloseModal} customer-id={customerId}></c-oppty-modal>
+        </template>
+    </template>
+</template>

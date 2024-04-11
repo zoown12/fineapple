@@ -1,0 +1,48 @@
+<!-- navigationMenu.html -->
+<template>
+    <lightning-card>
+    <lightning-vertical-navigation selected-item={selectedItem} onselect={handleSelect}>
+        
+        <div class="bold-label">
+        <lightning-vertical-navigation-item-icon label="홈" name="Home" icon-name="custom:custom107"></lightning-vertical-navigation-item-icon>
+        </div>
+
+        <lightning-vertical-navigation-section label="검색">
+                <lightning-vertical-navigation-item-icon label="전화번호 검색" name="vocSearch" icon-name="standard:search"></lightning-vertical-navigation-item-icon>
+                <lightning-vertical-navigation-item-icon label="이름 검색" name="vocNameSearch" icon-name="standard:search"></lightning-vertical-navigation-item-icon>
+         </lightning-vertical-navigation-section>
+
+        <lightning-vertical-navigation-section label="보고서">
+            <lightning-vertical-navigation-overflow>
+                <lightning-vertical-navigation-item-icon label="제품별 판매현황" name="productSearch" icon-name="custom:custom102"></lightning-vertical-navigation-item-icon>
+                <lightning-vertical-navigation-item-icon label="유형별 상담현황" name="vocTypeSearch" icon-name="custom:custom102"></lightning-vertical-navigation-item-icon>
+                <lightning-vertical-navigation-item-icon label="월별 VOC 건수" name="vocMonthSearch" icon-name="custom:custom102"></lightning-vertical-navigation-item-icon>
+            </lightning-vertical-navigation-overflow>
+        </lightning-vertical-navigation-section>
+
+    </lightning-vertical-navigation>
+    </lightning-card>
+    <div class="search-container">
+        <!-- 전화번호로 찾는 component -->
+        <template if:true={showVocSearch}>
+            <c-voc-search-component></c-voc-search-component>
+        </template>
+        <!-- 이름으로 찾는 component -->
+        <template if:true={showNameVocSearch}>
+            <c-voc-name-search-component></c-voc-name-search-component>
+        </template>
+        <!-- 판매현황 리포트 component -->
+        <template if:true={showproductSearch}>
+            <c-product-sales-chart></c-product-sales-chart>
+        </template>
+        <!-- 유형별 상담횟수 component -->
+        <template if:true={showvoctypeSearch}>
+           <c-voc-types-chart></c-voc-types-chart>
+        </template>
+
+        <!--월별 VOC건수-->
+        <template if:true={showvocMonthSearch}>
+            <c-voc-chart></c-voc-chart>
+         </template>
+    </div>
+</template>

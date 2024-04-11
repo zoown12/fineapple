@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="고객 검색" icon-name="standard:person_name">
+        <div class="slds-m-around_medium">
+            <div class="slds-col slds-size_1-of-7">
+            <lightning-input label="이름 검색" type="text" value={customerName} onchange={handleCustomerNameChange}></lightning-input>
+        </div>
+    </div>
+        <div class="slds-m-around_medium">
+            <lightning-button label="검색" onclick={searchCustomers} variant="brand" class="slds-m-right_medium"></lightning-button>
+            <lightning-button label="생성" onclick={handleSuccess} variant="brand" disabled={isCreateEnabled}></lightning-button>
+        </div>
+
+        <template if:true={vocRecords}>
+            <lightning-datatable key-field="Id" data={vocRecords} columns={columns} hide-checkbox-column=true onrowaction={handleRowAction}></lightning-datatable>
+        </template>
+    </lightning-card>
+</template>

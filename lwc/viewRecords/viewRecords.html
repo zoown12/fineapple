@@ -1,0 +1,33 @@
+<template>
+  <article class="slds-card">
+    <div class="slds-card__header slds-grid">
+      <header class="slds-media slds-media_center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <lightning-icon icon-name="custom:custom24" size="small" alternative-text="store"></lightning-icon>
+        </div>
+        <div class="slds-media__body slds-grid slds-grid_align-spread">
+          <h2 class="slds-card__header-title slds-col">
+            <template lwc:if={store}>
+              <p>{name} 지점 세일즈 현황</p>
+            </template>
+          </h2>
+          <p class="slds-col slds-text-heading_small">{today}</p>
+        </div>
+      </header>
+    </div>
+    <div class="slds-m-horizontal_small">
+      <div class="slds-m-vertical_xx-small">
+        <!-- 지점 세일즈 컴포넌트 -->
+        <template lwc:if={store}>
+          <c-oppty-list store-name={name}></c-oppty-list>
+        </template>
+      </div>
+      <div class="slds-m-vertical_small">
+        <!-- 지점 고객 컴포넌트 -->
+        <template lwc:if={store}>
+          <c-customer-list store-name={name}></c-customer-list>
+        </template>
+      </div>
+    </div>
+  </article>
+</template>

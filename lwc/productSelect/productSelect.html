@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="상품 선택"  icon-name="standard:proposition">
+        <div class="slds-m-horizontal_small">
+
+            <div class="slds-grid slds-wrap">
+                <lightning-combobox name="productGroup" label="제품군" value={selectedProductGroupId} options={productGroupOptions} onchange={handleProductGroupChange} class="slds-col slds-size_4-of-12 slds-m-horizontal_small"></lightning-combobox>
+                <lightning-combobox name="items" label="상품"
+                value={selectedItemId}
+                options={itemOptions}
+                onchange={handleItemChange} class="slds-col slds-size_6-of-12 slds-m-horizontal_small"></lightning-combobox>
+            </div>
+            <div class="slds-grid slds-wrap slds-m-vertical_small slds-grid_vertical-align-center slds-grid_align-spread">
+                <lightning-input type="number" label="수량" value={quantity} onchange={handleQuantityChange} class="slds-col slds-size_7-of-12 slds-m-left_small"></lightning-input>
+                <lightning-button  label="추가" variant="brand" onclick={saveRecords} disabled={isSaveDisabled} class="slds-col slds-size_2-of-12 slds-m-horizontal_medium slds-m-top_medium"></lightning-button>
+            </div>
+            </div>
+    </lightning-card>
+</template>
